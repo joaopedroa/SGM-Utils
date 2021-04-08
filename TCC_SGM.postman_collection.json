@@ -1,0 +1,429 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TCC_SGM",
+		"_postman_id": "eb4259e6-a3fb-a3c2-f89a-df5e98dba6f4",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "smg-config-server",
+			"description": "",
+			"item": [
+				{
+					"name": "GetConfigsByProfile",
+					"request": {
+						"url": "{{config-host}}/api/v1/sgm-api-gateway-zuul/prod",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sgm-api-gateway-zuul",
+			"description": "",
+			"item": [
+				{
+					"name": "Actuator - Atualizar Values",
+					"request": {
+						"url": "{{api-gateway}}/actuator/refresh",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sgm-georeferenciamento-service",
+			"description": "",
+			"item": [
+				{
+					"name": "Buscar todos os estados",
+					"request": {
+						"url": "{{api-gateway}}/sgm-georeferenciamento-service/api/v1/localidades/estados",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Total Informacoes Cadastradas",
+					"request": {
+						"url": "{{api-gateway}}/sgm-georeferenciamento-service/api/v1/info/total",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Municipios por UF",
+					"request": {
+						"url": "{{api-gateway}}/sgm-georeferenciamento-service/api/v1/localidades/municipios/MG",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				},
+				{
+					"name": "Malhas Municipios por ID",
+					"request": {
+						"url": "{{api-gateway}}/sgm-georeferenciamento-service/api/v1/localidades/malhas/municipios/1600154",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				},
+				{
+					"name": "Actuator - Atualizar Values",
+					"request": {
+						"url": "{{api-gateway}}/sgm-georeferenciamento-service/api/v1/actuator/refresh",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Info Municipios",
+					"request": {
+						"url": "{{api-gateway}}/sgm-georeferenciamento-service/api/v1/info/municipio",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"populacaoEstimada\": 555\n}"
+						},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar informações por id Municipio",
+					"request": {
+						"url": "{{api-gateway}}/sgm-georeferenciamento-service/api/v1/info/municipio/45",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"populacaoEstimada\": 555\n}"
+						},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sgm-users-service",
+			"description": "",
+			"item": [
+				{
+					"name": "Buscar Usuário Por Email",
+					"request": {
+						"url": {
+							"raw": "{{api-gateway}}/sgm-users-service/api/v1/users/search?email=user1@gmail.com",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"sgm-users-service",
+								"api",
+								"v1",
+								"users",
+								"search"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "user1@gmail.com",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sgm-oauth-service",
+			"description": "",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code >= 200 && responseCode.code < 300) {\r",
+									"    var json = JSON.parse(responseBody);\r",
+									"    postman.setEnvironmentVariable('token', json.access_token);\r",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{api-gateway}}/sgm-oauth-service/api/v1/oauth/token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c2dtMTIzOnNnbXNlY3JldDEyMw==",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sgm-carteira-projetos-service",
+			"description": "",
+			"item": [
+				{
+					"name": "Cadastrar Projeto",
+					"request": {
+						"url": "{{api-gateway}}/sgm-carteiraprojetos-service/api/v1/projetos",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nomeProjeto\": \"teste\"\n}"
+						},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Projeto Por id",
+					"request": {
+						"url": "{{api-gateway}}/sgm-carteiraprojetos-service/api/v1/projetos/1",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Todos Projetos",
+					"request": {
+						"url": {
+							"raw": "{{api-gateway}}/sgm-carteiraprojetos-service/api/v1/projetos?page=0&size=5",
+							"host": [
+								"{{api-gateway}}"
+							],
+							"path": [
+								"sgm-carteiraprojetos-service",
+								"api",
+								"v1",
+								"projetos"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "size",
+									"value": "5",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"populacaoEstimada\": 555\n}"
+						},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Quantidade Total Projetos",
+					"request": {
+						"url": "{{api-gateway}}/sgm-carteiraprojetos-service/api/v1/projetos/total",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"populacaoEstimada\": 555\n}"
+						},
+						"description": "Busca todos os estados do Brasil."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
